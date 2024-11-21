@@ -17,7 +17,11 @@ const Quiz = () => {
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg">
-      <h1 className="text-4xl font-bold text-center mb-5 text-blue-500">{currentQuestion + 1}<span className="text-2xl text-black">/{quizData.length}</span></h1>
+      <h1 className="text-4xl font-bold text-center mb-5 text-blue-500">
+        {currentQuestion + 1}
+        <span className="text-black">/</span>
+        <span className="text-2xl text-black">{quizData.length}</span>
+      </h1>
       {
         (currentQuestion - 1) !== -1 && (
           <>
