@@ -15,6 +15,11 @@ const Quiz = () => {
     }
   };
 
+  const handleAgain = () => {
+    setCurrentQuestion(0);
+    setIsCompleted(false)
+  }
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg">
       <h1 className="text-4xl font-bold text-center mb-5 text-blue-500">
@@ -22,7 +27,7 @@ const Quiz = () => {
         <span className="text-black">/</span>
         <span className="text-2xl text-black">{quizData.length}</span>
       </h1>
-      {
+      {/* {
         (currentQuestion - 1) !== -1 && (
           <>
             <Callout.Root>
@@ -35,7 +40,7 @@ const Quiz = () => {
             </Callout.Root>
           </>
         )
-      }
+      } */}
       {isCompleted ? (
         <div className="text-center mt-5">
           <h2 className="text-2xl font-bold">Քուզիը վերջացավ</h2>
@@ -64,7 +69,7 @@ const Quiz = () => {
             <AlertDialog.Content>
               <AlertDialog.Title>Հարցի պատասխան էր`</AlertDialog.Title>
               <AlertDialog.Description className="text-red-500 font-semibold">{quizData[currentQuestion].answer}</AlertDialog.Description>
-              <Flex gap="3" justify="end">
+              <Flex gap="3" className="mt-5" justify="end">
                 <AlertDialog.Action>
                   <Button onClick={handleAnswerSubmit} color="blue" size={"3"}>Առաջ</Button>
                 </AlertDialog.Action>
@@ -75,7 +80,7 @@ const Quiz = () => {
       )}
       {
         isCompleted && (
-          <Button color="blue" style={{width: "100%", marginTop: "30px"}} size={"4"}>Սկսել նորից</Button>
+          <Button color="blue" style={{width: "100%", marginTop: "30px"}} onClick={handleAgain} size={"4"}>Սկսել նորից</Button>
         )
       }
       <footer>
